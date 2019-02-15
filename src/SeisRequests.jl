@@ -113,7 +113,10 @@ function request_uri(r::SeisRequest; server=DEFAULT_SERVER)
             v = getfield(r, f)
             if !ismissing(v)
                 if f == :starttime
-                    uri = join((uri, "$(f)"[1:5]*"=$(v)"), "&")     
+                    uri = join((uri, "$(f)"[1:5]*"=$(v)"), "&")
+                
+                elseif (f == :format) || (f == :nodata) #not print in uri
+
                 else
                     uri = join((uri, "$(f)"[1:3]*"=$(v)"), "&")
                 end
