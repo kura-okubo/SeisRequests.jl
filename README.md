@@ -27,7 +27,7 @@ julia> import Pkg; Pkg.add("https://github.com/anowacki/SeisRequests.jl")
 Or my update version,
 
 ```julia
-julia> import Pkg; Pkg.add("https://github.com/kura-okubo/SeisRequests.jl")
+(v1.x) pkg> add "https://github.com/kura-okubo/SeisRequests.jl"
 ```
 
 (On v0.6 and older, instead run
