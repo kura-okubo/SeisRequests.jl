@@ -106,6 +106,7 @@ function request_uri(r::SeisRequest; server=DEFAULT_SERVER)
     service = service_string(r)
     version = version_string(r)
     uri = join((server, protocol, service, version, "query?"), "/")
+    firstfield = true
 
     if server == "NCEDC"
         
