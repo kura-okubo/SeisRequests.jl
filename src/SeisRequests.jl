@@ -108,10 +108,7 @@ function request_uri(r::SeisRequest; server=DEFAULT_SERVER)
     uri = join((server, protocol, service, version, "query?"), "/")
     firstfield = true
 
-    println(server)
-    println(typeof(server))
-
-    if server == "NCEDC"
+    if server == "http://service.ncedc.org"
         for f in fieldnames(typeof(r))
             v = getfield(r, f)
             if !ismissing(v)
