@@ -49,7 +49,8 @@ import DataStructures: OrderedDict
 const SERVERS = Dict{String,String}(
     "IRIS" => "http://service.iris.edu",
     "INGV" => "http://webservices.ingv.it",
-    "Orfeus" => "http://www.orfeus-eu.org")
+    "Orfeus" => "http://www.orfeus-eu.org",
+    "NCEDC" => "http://service.ncedc.org")
 
 const DEFAULT_SERVER = "IRIS"
 
