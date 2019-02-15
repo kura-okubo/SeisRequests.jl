@@ -138,6 +138,8 @@ function request_uri(r::SeisRequest; server=DEFAULT_SERVER)
             end
         end
     end
+
+    println(uri)
     uri
 end
 
