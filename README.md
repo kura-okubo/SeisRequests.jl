@@ -24,6 +24,12 @@ Add SeisRequests on v0.7 of Julia and upwards like so:
 julia> import Pkg; Pkg.add("https://github.com/anowacki/SeisRequests.jl")
 ```
 
+Or my update version,
+
+```julia
+julia> import Pkg; Pkg.add("https://github.com/kura-okubo/SeisRequests.jl")
+```
+
 (On v0.6 and older, instead run
 `Pkg.clone("https://github.com/anowacki/SeisRequests.jl")`)
 
