@@ -116,6 +116,7 @@ function request_uri(r::SeisRequest; server=DEFAULT_SERVER)
                     uri = join((uri, "$(f)"[1:5]*"=$(v)"), "&")     
                 else
                     uri = join((uri, "$(f)"[1:3]*"=$(v)"), "&")
+                end
             end
         end
 
