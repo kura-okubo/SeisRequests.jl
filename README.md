@@ -24,7 +24,7 @@ Add SeisRequests on v0.7 of Julia and upwards like so:
 julia> import Pkg; Pkg.add("https://github.com/anowacki/SeisRequests.jl")
 ```
 
-Or my update version,
+<span style="color:blue">Or my update version with NCEDC server,</span>
 
 ```julia
 (v1.x) pkg> add "https://github.com/kura-okubo/SeisRequests.jl"
