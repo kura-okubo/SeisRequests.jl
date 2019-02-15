@@ -109,7 +109,7 @@ function request_uri(r::SeisRequest; server=DEFAULT_SERVER)
     firstfield = true
 
     if server == "NCEDC"
-        
+        println("test if")
         for f in fieldnames(typeof(r))
             v = getfield(r, f)
             if !ismissing(v)
