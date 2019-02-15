@@ -106,15 +106,31 @@ function request_uri(r::SeisRequest; server=DEFAULT_SERVER)
     service = service_string(r)
     version = version_string(r)
     uri = join((server, protocol, service, version, "query?"), "/")
-    firstfield = true
-    for f in fieldnames(typeof(r))
-        v = getfield(r, f)
-        if !ismissing(v)
-            if firstfield
-                uri *= "$(f)=$(v)"
-                firstfield = false
-            else
-                uri = join((uri, "$(f)=$(v)"), "&")
+
+    if server == "NCEDC"
+        
+        for f in fieldnames(typeof(r))
+            v = getfield(r, f)
+            if !ismissing(v)
+                if f == :starttime
+                    uri = join((uri, "$(f)"[1:5]*"=$(v)"), "&")     
+                else
+                    uri = join((uri, "$(f)"[1:3]*"=$(v)"), "&")
+            end
+        end
+
+        uri = uri[1:end-1]
+
+    else
+        for f in fieldnames(typeof(r))
+            v = getfield(r, f)
+            if !ismissing(v)
+                if firstfield
+                    uri *= "$(f)=$(v)"
+                    firstfield = false
+                else
+                    uri = join((uri, "$(f)=$(v)"), "&")
+                end
             end
         end
     end
