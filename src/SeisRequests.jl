@@ -31,6 +31,7 @@ export
     IRISTimeSeries,
     add_server!,
     get_request,
+    request_uri,
     server_list
 
 using Compat
@@ -138,7 +139,6 @@ function request_uri(r::SeisRequest; server=DEFAULT_SERVER)
         end
     end
 
-    println(uri)
     uri
 end
 
