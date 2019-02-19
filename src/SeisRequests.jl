@@ -171,7 +171,18 @@ the server either by URI or one of the available servers.  (See [server_list](@r
 """
 function get_request(r::SeisRequest; server=DEFAULT_SERVER, verbose=true)
     uri = request_uri(r; server=server)
-    response = HTTP.request("GET", uri)
+
+    #Specify request headers
+    #Wrong request headers cause server internal error (500)
+    if server == "NCEDC"
+        headers = ["Host" => "service.ncedc.org", "User-Agent" => "curl/7.60.0", "Accept" => "*/*"]
+    elseif server == "IRIS"
+        headers = ["Host" => "service.iris.edu", "User-Agent" => "curl/7.60.0", "Accept" => "*/*"]
+    else
+        headers = []
+    end
+
+    response = HTTP.request("GET", uri; headers=headers)
     status_text = STATUS_CODES[response.status]
     if verbose
         @info("Request status: " * status_text)
